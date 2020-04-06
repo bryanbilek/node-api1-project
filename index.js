@@ -67,11 +67,11 @@ server.get("/api/users", (req, res) => {
 server.get("/api/users/:id", (req, res) => {
     const id = req.params.id;
 
-    const users = users.find((user) => user.id == id);
+    const userFound = users.find((user) => user.id == id);
 
-    if (users) {
+    if (userFound) {
     res.status(201).json(users);
-    } else if (!users) {
+    } else if (!userFound) {
         //status 404 if can't find id
         res.status(404).json({ message: "The user with the specified ID does not exist." });
     } else {
