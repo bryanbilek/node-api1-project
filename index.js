@@ -72,8 +72,10 @@ server.get("/api/users/:id", (req, res) => {
     if (users) {
     res.status(201).json(users);
     } else if (*****) {
+        //status 404 if can't find id
         res.status(404).json({ message: "The user with the specified ID does not exist." });
     } else {
+        //status 500 if error retrieving user
         res.status(500).json({ errorMessage: "The user information could not be retrieved." });
     }
 });
